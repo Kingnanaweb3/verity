@@ -76,3 +76,21 @@ Format: one line per checkpoint, appended, never rewritten.
 - blocked: only Airtable left — API key, base ID, and the Accounts table
   with seed data
 - next: Airtable setup, then a real end-to-end --dry-run smoke test
+
+## Airtable credential confirmed working — ALL THREE APPS NOW LIVE
+- done: Airtable base created (appPjR39OyfzriGNd), Accounts table with
+  columns Name/LastActivityDate/NormalFrequencyDays/HealthNote
+- done: AIRTABLE_API_KEY (write scope required — read-only initially
+  failed with INVALID_PERMISSIONS_OR_MODEL_NOT_FOUND, fixed by adding
+  data.records:write scope to the token)
+- done: AIRTABLE_TABLE_NAME set to the table ID (tblX7qubawWfsGBr0)
+  instead of "Accounts" — the table's actual tab name didn't match the
+  default, using the ID sidesteps that entirely
+- done: seeded 4 records via API instead of manual entry — Almonds
+  (stalled, 25 days vs 7-day baseline), Gloriet (healthy), Aevry
+  (stalled, 40 days vs 10-day baseline, ALSO carries the prompt-injection
+  test string in HealthNote), Selene ltd (healthy)
+- verified: all 4 records created successfully with real Airtable record IDs
+- ALL THREE CREDENTIALS NOW CONFIRMED: Slack, Linear, Airtable
+- next: real end-to-end python3 -m agent.main --dry-run smoke test —
+  this is the first time the full loop can actually run

@@ -139,4 +139,4 @@ linear.py, http.py, trace.py, ledger.py are all DONE and pushed to
 https://github.com/Kingnanaweb3/verity
 Still pending: agent/verifier.py, evals/scenarios.py, evals/run_evals.py,
 README.md, RELIABILITY.md
-Credentials: SLACK DONE, LINEAR DONE. Airtable still pending — this is the last credential blocking a real end-to-end smoke test.
+Credentials: ALL THREE CONFIRMED WORKING (Slack, Linear, Airtable). Ready for a real end-to-end --dry-run test.

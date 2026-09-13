@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+cat > README.md << 'EOF'
 # Verity
 
 Think about a busy manager who has ten people reporting to them. Every Friday, that manager asks each person "did you finish the thing you told me you'd finish?" Most people say yes. The manager believes them. Most of the time that trust is fine. But every so often, someone says yes when the real answer is "mostly, but not quite," and the manager only finds out three weeks later when a customer complains.
@@ -100,3 +104,5 @@ The eval suite runs against realistic fake responses, not live third party servi
 During the real, live build, a genuine bug did show up. Verity claimed a Slack message had posted, and the verifier correctly caught that it could not confirm it, because the Slack app's permission scopes were missing one needed to read channel history back. That is not a hypothetical example written for this document. It happened, it got diagnosed from the verifier's own honest report, and it got fixed, and then confirmed fixed the same way, by checking again rather than assuming.
 
 If anything, that is the best proof this idea works. The system caught its own real mistake, not a scripted one.
+EOF
+echo "wrote README.md"

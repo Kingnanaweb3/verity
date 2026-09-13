@@ -1,7 +1,7 @@
 # Verity
 
 **Live demo:** [DEMO_VIDEO_URL_HERE]
-**Landing page:** [LANDING_PAGE_URL_HERE]
+**Landing page:** https://verity-xi-liart.vercel.app/
 
 **Want to verify the reliability claims yourself, with zero setup?** No API keys needed:
 ```

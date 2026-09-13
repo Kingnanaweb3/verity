@@ -1,0 +1,6 @@
+{"ts": "2026-09-13T17:36:24Z", "run_id": "2a0039bd", "step": 0, "tool": "airtable", "attempt": 1, "status": "ok", "http": 200}
+{"ts": "2026-09-13T17:36:24Z", "run_id": "2a0039bd", "step": 1, "tool": "list_stalled_accounts", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T17:36:25Z", "run_id": "2a0039bd", "step": 2, "tool": "draft_slack_approval", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T17:36:26Z", "run_id": "2a0039bd", "step": 3, "tool": "upsert_linear_ticket", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T17:36:26Z", "run_id": "2a0039bd", "step": 4, "tool": "draft_slack_approval", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T17:36:28Z", "run_id": "2a0039bd", "step": 5, "tool": "upsert_linear_ticket", "idempotent_hit": false, "tokens": 0, "verified": null}

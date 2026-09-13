@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from agent.loop import run
+from agent.verifier import verify_run, print_verification_report
 
 
 def parse_args():
@@ -59,7 +60,13 @@ def main():
         print("Check your .env file against .env.example.")
         sys.exit(1)
 
-    run(dry_run=dry_run, fault=args.fault)
+    trace = run(dry_run=dry_run, fault=args.fault)
+
+    if dry_run:
+        print("[SKIPPED] Verification skipped in dry-run mode — nothing was actually written to Slack/Linear to check.")
+    else:
+        results = verify_run(trace)
+        print_verification_report(results)
 
 
 if __name__ == "__main__":

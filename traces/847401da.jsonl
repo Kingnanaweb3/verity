@@ -1,0 +1,6 @@
+{"ts": "2026-09-13T17:43:10Z", "run_id": "847401da", "step": 0, "tool": "airtable", "attempt": 1, "status": "ok", "http": 200}
+{"ts": "2026-09-13T17:43:10Z", "run_id": "847401da", "step": 1, "tool": "list_stalled_accounts", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T17:43:11Z", "run_id": "847401da", "step": 2, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": false, "verify_note": "no message timestamp recorded \u2014 treating as unconfirmed"}
+{"ts": "2026-09-13T17:43:12Z", "run_id": "847401da", "step": 3, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": false, "verify_note": "no ticket id recorded \u2014 treating as unconfirmed"}
+{"ts": "2026-09-13T17:43:12Z", "run_id": "847401da", "step": 4, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": false, "verify_note": "no message timestamp recorded \u2014 treating as unconfirmed"}
+{"ts": "2026-09-13T17:43:13Z", "run_id": "847401da", "step": 5, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": false, "verify_note": "no ticket id recorded \u2014 treating as unconfirmed"}

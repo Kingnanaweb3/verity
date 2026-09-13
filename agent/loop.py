@@ -18,7 +18,7 @@ from agent.infra import ledger
 from agent.infra.trace import Trace
 from agent.infra.http import set_fault
 
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-20b")
 
 MAX_STEPS = 12
 MAX_TOKENS_PER_RUN = 20000
@@ -128,7 +128,16 @@ def _execute_tool(name: str, tool_input: dict, dry_run: bool, account_state: dic
             return {"dry_run": True, "would_execute": name, "input": tool_input}
 
         result = registry.dispatch(name, tool_input, trace=trace)
-        entry = trace.log_tool_call(tool=name, idempotent_hit=False)
+
+        # Pass the claimed result reference into the trace entry itself,
+        # so verifier.py can look it up later without re-running anything.
+        entry = trace.log_tool_call(
+            tool=name,
+            idempotent_hit=False,
+            result_ts=result.get("ts"),
+            result_ticket_id=result.get("ticket_id"),
+            result_channel=result.get("channel"),
+        )
 
         # Only record success in the ledger — a failed write should be
         # retryable on the next run, not silently treated as "already done".

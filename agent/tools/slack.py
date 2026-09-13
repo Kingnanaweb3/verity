@@ -48,24 +48,33 @@ def draft_approval(account_id: str, account_name: str, draft_text: str, reason: 
 
     return {
         "posted": True,
-        "channel": SLACK_CHANNEL,
-        "ts": body.get("ts"),  # message timestamp — verifier.py uses this to re-fetch and confirm
+        # Slack's chat.postMessage accepts "#name" but returns the REAL
+        # channel ID here — conversations.history (used by fetch_message)
+        # requires that real ID, not the name. Returning it lets verifier.py
+        # check the right place instead of assuming the configured name works.
+        "channel": body.get("channel"),
+        "ts": body.get("ts"),
     }
 
 
-def fetch_message(ts: str, trace=None):
+def fetch_message(ts: str, channel: str = None, trace=None):
     """
     Used ONLY by verifier.py — independently re-reads a message by its
     timestamp to confirm it actually exists, rather than trusting the
     agent's own "posted": True claim.
+
+    `channel` should be the REAL channel ID returned by draft_approval's
+    result (e.g. "C0C1D6GJXGV"), not the configured "#name" — Slack's
+    conversations.history endpoint requires the real ID.
     """
+    target_channel = channel or SLACK_CHANNEL
     resp = request(
         service="slack",
         method="GET",
         url="https://slack.com/api/conversations.history",
         trace=trace,
         headers={"Authorization": f"Bearer {SLACK_BOT_TOKEN}"},
-        params={"channel": SLACK_CHANNEL, "latest": ts, "inclusive": "true", "limit": 1},
+        params={"channel": target_channel, "latest": ts, "inclusive": "true", "limit": 1},
     )
     if resp.status_code >= 400:
         return {"found": False}

@@ -42,8 +42,13 @@ class Trace:
         self.entries.append(entry)
         self._append_line(entry)
 
-    def log_tool_call(self, tool: str, idempotent_hit: bool = False, tokens: int = 0):
-        """Called once per logical tool call (not per HTTP retry) to bump the step counter."""
+    def log_tool_call(self, tool: str, idempotent_hit: bool = False, tokens: int = 0, **extra):
+        """
+        Called once per logical tool call (not per HTTP retry) to bump the
+        step counter. Extra kwargs (e.g. result_ts, result_ticket_id) are
+        stored on the entry so verifier.py can later look up what to
+        independently re-check, without needing to re-run the tool call.
+        """
         self.step += 1
         entry = {
             "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -53,6 +58,7 @@ class Trace:
             "idempotent_hit": idempotent_hit,
             "tokens": tokens,
             "verified": None,  # filled in later by verifier.py, None until then
+            **extra,
         }
         self.entries.append(entry)
         self._append_line(entry)

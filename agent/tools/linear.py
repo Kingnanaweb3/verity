@@ -5,7 +5,7 @@ re-running the agent updates rather than duplicates.
 """
 import os
 
-from agent.infra.http import request
+from agent.infra import http
 
 LINEAR_API_KEY = os.environ.get("LINEAR_API_KEY", "")
 LINEAR_TEAM_ID = os.environ.get("LINEAR_TEAM_ID", "")
@@ -14,7 +14,7 @@ GRAPHQL_URL = "https://api.linear.app/graphql"
 
 
 def _graphql(query: str, variables: dict, trace=None):
-    return request(
+    return http.request(
         service="linear",
         method="POST",
         url=GRAPHQL_URL,

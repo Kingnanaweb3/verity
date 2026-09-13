@@ -5,7 +5,7 @@ last-activity exceeds THEIR OWN baseline check-in frequency.
 import os
 from datetime import datetime, timezone
 
-from agent.infra.http import request
+from agent.infra import http
 
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY", "")
 BASE_ID = os.environ.get("AIRTABLE_BASE_ID", "")
@@ -23,7 +23,7 @@ def list_stalled_accounts(trace=None):
       (today - LastActivityDate).days > NormalFrequencyDays
     i.e. compared against ITS OWN pattern, not a fixed number for everyone.
     """
-    resp = request(
+    resp = http.request(
         service="airtable",
         method="GET",
         url=BASE_URL,

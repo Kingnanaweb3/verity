@@ -4,7 +4,7 @@ customer directly; this is the approval gate itself.
 """
 import os
 
-from agent.infra.http import request
+from agent.infra import http
 
 SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 SLACK_CHANNEL = os.environ.get("SLACK_CHANNEL", "#verity")
@@ -25,7 +25,7 @@ def draft_approval(account_id: str, account_name: str, draft_text: str, reason: 
         f"*Draft outreach (awaiting approval):*\n{draft_text}"
     )
 
-    resp = request(
+    resp = http.request(
         service="slack",
         method="POST",
         url=POST_MESSAGE_URL,
@@ -68,7 +68,7 @@ def fetch_message(ts: str, channel: str = None, trace=None):
     conversations.history endpoint requires the real ID.
     """
     target_channel = channel or SLACK_CHANNEL
-    resp = request(
+    resp = http.request(
         service="slack",
         method="GET",
         url="https://slack.com/api/conversations.history",

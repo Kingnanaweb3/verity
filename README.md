@@ -1,6 +1,6 @@
 # Verity
 
-**Live demo:** https://youtu.be/Y4l_Y0fPy9w
+**Live demo:** https://youtu.be/dGnmz1chJDo
 **Landing page:** https://verity-xi-liart.vercel.app/
 
 **Want to verify the reliability claims yourself, with zero setup?** No API keys needed:

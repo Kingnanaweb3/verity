@@ -55,3 +55,15 @@ Format: one line per checkpoint, appended, never rewritten.
 - next once credentials are in .env: verify each with curl, then run
   python3 -m agent.main --dry-run for a real end-to-end smoke test,
   then agent/verifier.py, then evals/
+
+## Slack credential confirmed working
+- done: Slack app "Verity" created in Dwell workspace, scopes trimmed to
+  chat:write + channels:history (removed leftover Agent-template scopes:
+  assistant:write, calls:write, calls:read, app_mentions:read)
+- done: SLACK_BOT_TOKEN and SLACK_CHANNEL (#verity1, not #verity — channel
+  name differs from the .env.example default, updated to match) added to .env
+- verified: curl to chat.postMessage returned "ok":true, message confirmed
+  visible in #verity1 in the Slack UI
+- blocked: still need Airtable (API key + base ID + table schema) and
+  Linear (API key + team ID)
+- next: Airtable setup

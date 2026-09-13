@@ -1,9 +1,0 @@
-{"ts": "2026-09-13T17:55:45Z", "run_id": "3225bd2f", "step": 0, "tool": "airtable", "attempt": 1, "status": "ok", "http": 200}
-{"ts": "2026-09-13T17:55:45Z", "run_id": "3225bd2f", "step": 1, "tool": "list_stalled_accounts", "idempotent_hit": false, "tokens": 0, "verified": null}
-{"ts": "2026-09-13T17:55:46Z", "run_id": "3225bd2f", "step": 2, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": null}
-{"ts": "2026-09-13T17:55:47Z", "run_id": "3225bd2f", "step": 3, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": null}
-{"ts": "2026-09-13T17:55:48Z", "run_id": "3225bd2f", "step": 3, "tool": "slack", "attempt": 1, "status": "ok", "http": 200}
-{"ts": "2026-09-13T17:55:48Z", "run_id": "3225bd2f", "step": 4, "tool": "draft_slack_approval", "idempotent_hit": false, "tokens": 0, "verified": true, "result_ts": "1789322148.820029", "result_ticket_id": null, "result_channel": "C0C1D6GJXGV", "verify_note": "message confirmed present in channel"}
-{"ts": "2026-09-13T17:55:50Z", "run_id": "3225bd2f", "step": 4, "tool": "linear", "attempt": 1, "status": "error", "http": 400, "verified": true, "verify_note": "message confirmed present in channel"}
-{"ts": "2026-09-13T17:55:51Z", "run_id": "3225bd2f", "step": 4, "tool": "linear", "attempt": 1, "status": "ok", "http": 200, "verified": true, "verify_note": "message confirmed present in channel"}
-{"ts": "2026-09-13T17:55:51Z", "run_id": "3225bd2f", "step": 5, "tool": "upsert_linear_ticket", "idempotent_hit": false, "tokens": 0, "verified": true, "result_ts": null, "result_ticket_id": "1e1109d9-3f56-44aa-8b57-b5b9cc8f6815", "result_channel": null, "verify_note": "ticket confirmed present with matching state"}

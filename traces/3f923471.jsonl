@@ -1,0 +1,2 @@
+{"ts": "2026-09-13T22:09:20Z", "run_id": "3f923471", "step": 1, "tool": "upsert_linear_ticket", "idempotent_hit": false, "tokens": 0, "verified": true, "result_ticket_id": "lin5", "verify_note": "ticket confirmed present with matching state"}
+{"ts": "2026-09-13T22:09:20Z", "run_id": "3f923471", "step": 2, "tool": "draft_slack_approval", "idempotent_hit": false, "tokens": 0, "verified": false, "result_ts": null, "result_channel": null, "verify_note": "no message timestamp recorded \u2014 treating as unconfirmed"}

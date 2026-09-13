@@ -1,0 +1,15 @@
+An AI agent can tell you it finished the job. That's not the same as it actually finishing. Most agents never check the difference. Verity does, every single run.
+
+It reads customer accounts from Airtable and compares each one against its own normal check in pattern, not a number that applies to everyone. An account that usually goes quiet for thirty days isn't stalled just because thirty days passed. One that usually checks in weekly, and hasn't in a month, is a different story. That's the account Verity flags.
+
+A draft outreach message goes straight to Slack, for a human to approve. Nothing reaches a real customer automatically. And a Linear ticket gets created, so the follow up doesn't get lost.
+
+Here's the part most agents get wrong. Run it again on the same account, and nothing duplicates. No second message, no second ticket. That's checked before anything gets written, using a small local ledger that remembers exactly what already happened.
+
+Now watch what happens when a service actually fails. I'm forcing Slack to return an error, on purpose. Verity retries, gives up cleanly, and still writes the Linear ticket. Then, after the run, a separate part of the system reopens Slack and Linear itself, and checks what's actually there. Not what the agent said happened. What's real. Here, it correctly reports Slack failed and Linear succeeded. Nothing gets hidden.
+
+Ten scenarios, covering rate limits, bad credentials, and an agent lying about a completed task, all pass, fully offline, in under six milliseconds. Anyone can clone this repository and run that suite themselves, no API keys required, and check these claims independently.
+
+During this build, this exact failure happened for real. The agent said a message posted. It hadn't. A missing permission scope was the reason. It got fixed, then verified the same way, by checking again, not by trusting the fix.
+
+Verity. Verified. Not just claimed.

@@ -1,0 +1,8 @@
+{"ts": "2026-09-13T20:26:57Z", "run_id": "a97d60a9", "step": 0, "tool": "airtable", "attempt": 1, "status": "ok", "http": 200}
+{"ts": "2026-09-13T20:26:57Z", "run_id": "a97d60a9", "step": 1, "tool": "list_stalled_accounts", "idempotent_hit": false, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:26:57Z", "run_id": "a97d60a9", "step": 2, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:26:58Z", "run_id": "a97d60a9", "step": 3, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:26:58Z", "run_id": "a97d60a9", "step": 4, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:26:59Z", "run_id": "a97d60a9", "step": 5, "tool": "draft_slack_approval", "idempotent_hit": true, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:27:08Z", "run_id": "a97d60a9", "step": 6, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": null}
+{"ts": "2026-09-13T20:27:15Z", "run_id": "a97d60a9", "step": 7, "tool": "upsert_linear_ticket", "idempotent_hit": true, "tokens": 0, "verified": null}

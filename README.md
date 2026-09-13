@@ -1,5 +1,19 @@
 # Verity
 
+**Live demo:** [DEMO_VIDEO_URL_HERE]
+**Landing page:** [LANDING_PAGE_URL_HERE]
+
+**Want to verify the reliability claims yourself, with zero setup?** No API keys needed:
+```
+git clone https://github.com/Kingnanaweb3/verity
+cd verity
+pip install anthropic httpx python-dotenv rich groq
+python3 -m evals.run_evals
+```
+10 scenarios, fully mocked, runs in under 6ms. This checks the same retry logic,
+idempotency, allow list, and verifier behavior described below, independently
+of anything claimed in this document.
+
 Think about a busy manager who has ten people reporting to them. Every Friday, that manager asks each person "did you finish the thing you told me you'd finish?" Most people say yes. The manager believes them. Most of the time that trust is fine. But every so often, someone says yes when the real answer is "mostly, but not quite," and the manager only finds out three weeks later when a customer complains.
 
 Verity is built for the version of this problem that happens with AI agents instead of people. An AI agent can say "I posted the message" and "I updated the ticket" with total confidence, and that confidence can be wrong. Not because the agent is lying on purpose. It just does not always check its own work.

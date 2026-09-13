@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verity — Verified. Not just claimed.</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" width="34" height="34" alt="Verity logo" style="border-radius:8px">
+    Verity
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#reliability">Reliability</a></li>
+    <li><a href="#findings">Findings</a></li>
+  </ul>
+  <a href="https://github.com/Kingnanaweb3/verity" class="pill">View the repo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+</nav>
+
+<section class="hero">
+  <h1>Verified.<br><span class="muted">Not just claimed.</span></h1>
+  <p class="lead">
+    Verity checks every claim your agent makes against what actually happened
+    in Slack and Linear, before you find out the hard way.
+  </p>
+  <a href="#findings" class="pill primary">See it running <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+</section>
+
+
+<section class="proof reveal-group">
+  <p class="proof-sentence reveal">Every number here is real, pulled from this exact build, not rounded up for a slide.</p>
+  <div class="proof-grid">
+    <div class="reveal"><div class="proof-num">3</div><div class="proof-cap">External apps connected<br>Airtable, Slack, Linear</div></div>
+    <div class="reveal"><div class="proof-num">10/10</div><div class="proof-cap">Eval scenarios passing<br>fully offline, under 6ms</div></div>
+    <div class="reveal"><div class="proof-num">12</div><div class="proof-cap">Hard step cap<br>per agent run, enforced in code</div></div>
+    <div class="reveal"><div class="proof-num">1</div><div class="proof-cap">Real bug caught<br>by the verifier, live, not staged</div></div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="section-head reveal">
+    <h2>An agent can say it finished. That is not the same as it finishing.</h2>
+    <p>Tool calls return success codes. A success code is not proof the customer message actually posted, or that the ticket actually updated. Verity treats those as two separate facts, and checks both.</p>
+  </div>
+  <div class="cards reveal-group">
+    <div class="card reveal">
+      <div class="icon-tile muted"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="mono-label">Step 01 — Flag</div>
+      <p>Verity reads every account against its own normal rhythm, not a number that applies to everyone. A customer quiet for thirty days is not stalled if thirty days is normal for them.</p>
+    </div>
+    <div class="card reveal">
+      <div class="icon-tile muted"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+      <div class="mono-label">Step 02 — Draft</div>
+      <p>A short, specific reason and a draft outreach message go to Slack. Nothing reaches a real customer without a human approving it first.</p>
+    </div>
+    <div class="card hl reveal">
+      <div class="icon-tile accent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="mono-label">Step 03 — Verify</div>
+      <p>After the run, Verity reopens Slack and Linear on its own and checks what is actually there. The agent's claim and the real state have to agree by evidence, not assumption.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reliability">
+  <div class="split reveal-group">
+    <div class="split-art reveal">
+      <div class="split-badge"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    </div>
+    <div class="split-copy reveal">
+      <p class="lead">The agent's own word is never the last word. A separate piece of code, with its own read access, checks reality after every run.</p>
+      <div class="split-points">
+        <div class="split-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><b>Independent, not self reported</b><span>The agent is never given the tools it would need to check its own work.</span></div>
+        </div>
+        <div class="split-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><b>Idempotent by default</b><span>Running the same account twice never creates a duplicate message or ticket.</span></div>
+        </div>
+        <div class="split-point">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><b>Fails loud, never silent</b><span>A mismatch between claim and reality is reported plainly, not swallowed.</span></div>
+        </div>
+      </div>
+      <a href="https://github.com/Kingnanaweb3/verity/blob/main/RELIABILITY.md" class="pill">Read the reliability brief <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head reveal">
+    <h2>What the report actually looks like</h2>
+    <p>This is a real verification report from a real run, not a mockup.</p>
+  </div>
+  <div class="termshot reveal">
+    <div class="termshot-bar"><span></span><span></span><span></span></div>
+    <pre>============================================================
+VERIFICATION REPORT — 2 claims checked, 2 idempotent skips
+  Confirmed:  2
+  Mismatched: 0
+============================================================
+  <span class="skip">[SKIP] step 2 (draft_slack_approval): skipped - idempotent hit, no new write this run to verify</span>
+  <span class="skip">[SKIP] step 3 (upsert_linear_ticket): skipped - idempotent hit, no new write this run to verify</span>
+  <span class="ok">[OK] step 4 (draft_slack_approval): message confirmed present in channel</span>
+  <span class="ok">[OK] step 5 (upsert_linear_ticket): ticket confirmed present with matching state</span></pre>
+  </div>
+</section>
+
+<section id="findings" style="padding-left:0;padding-right:0">
+  <div class="section-head reveal">
+    <h2>What actually broke, and what that proved</h2>
+  </div>
+  <div class="findings-img reveal"></div>
+  <div class="findings-grid">
+    <div class="finding reveal">
+      <span class="num">54.3%</span>
+      <div class="claim">Most agent failures are invisible</div>
+      <div class="desc">Published research on multi app agents found over half of failed runs looked complete right up until the final, human facing step.</div>
+      <hr><div class="so">So Verity checks the final step independently, every run, not just the steps before it.</div>
+    </div>
+    <div class="finding reveal">
+      <span class="num">1</span>
+      <div class="claim">A real bug, not a staged one</div>
+      <div class="desc">The agent reported a Slack message had posted. It had not. A missing permission scope was the actual reason.</div>
+      <hr><div class="so">So the scope was fixed, then re-verified with the same independent check, not a new claim.</div>
+    </div>
+    <div class="finding reveal">
+      <span class="num">0</span>
+      <div class="claim">Duplicate writes across reruns</div>
+      <div class="desc">Running the same account twice never creates a second message or a second ticket.</div>
+      <hr><div class="so">So a local ledger remembers exactly what already happened, before anything is sent again.</div>
+    </div>
+    <div class="finding reveal">
+      <span class="num">12</span>
+      <div class="claim">Hard limit on every run</div>
+      <div class="desc">An agent loop with no ceiling can, in principle, run forever on a bad day.</div>
+      <hr><div class="so">So every run stops and reports at step twelve, no exceptions, no override.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="faq-wrap reveal-group">
+    <div class="reveal">
+      <h2>Asked plainly, answered honestly</h2>
+    </div>
+    <div class="reveal">
+      <details>
+        <summary>Does Verity verify Airtable too?<span class="plus">+</span></summary>
+        <p>No, not yet. The agent only reads from Airtable in this build, it never writes back, so there is nothing on that side to independently confirm. That would be the next system to add.</p>
+      </details>
+      <details>
+        <summary>What happens if Slack and Linear disagree with each other?<span class="plus">+</span></summary>
+        <p>Right now they are checked independently. A ticket referencing a message that was later deleted would still pass both checks separately. Cross checking the two against each other is the next reliability layer, not this one.</p>
+      </details>
+      <details>
+        <summary>Can a customer message actually go out without a human?<span class="plus">+</span></summary>
+        <p>No. Every outreach is a draft posted to Slack for approval. Nothing reaches a real customer automatically.</p>
+      </details>
+      <details>
+        <summary>What happens if Slack or Linear is down?<span class="plus">+</span></summary>
+        <p>Verity retries rate limits and server errors with backoff, gives up cleanly if a service stays down, and reports exactly what got written and what did not, rather than pretending everything worked.</p>
+      </details>
+      <details>
+        <summary>Can someone break it by writing something strange into a customer notes field?<span class="plus">+</span></summary>
+        <p>It has been tested against exactly that. Instructions hidden inside account data are treated as data, never as commands, because the list of things the agent is allowed to do is enforced in code, not just requested in a prompt.</p>
+      </details>
+      <details>
+        <summary>Why Groq instead of a larger frontier model?<span class="plus">+</span></summary>
+        <p>Speed matters for a step by step agent loop a human is meant to watch and approve close to real time. This tool calling does not need the largest model available, it needs a fast, reliable one.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="close-sec">
+  <h2 class="reveal">Verified. Not just claimed.</h2>
+  <p class="reveal">Built in one day, checked against real Slack and Linear accounts, not just against itself.</p>
+  <div class="close-ctas reveal">
+    <a href="https://github.com/Kingnanaweb3/verity" class="pill primary">View the repo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    <a href="https://github.com/Kingnanaweb3/verity/blob/main/RELIABILITY.md" class="pill">Read the reliability brief <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="logo.png" width="26" height="26" alt="Verity logo" style="border-radius:6px">
+        Verity
+      </div>
+      <p class="footer-blurb">An account health agent that checks its own work against Slack and Linear before it calls anything done.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#how-it-works">How it works</a>
+      <a href="#reliability">Reliability</a>
+      <a href="#findings">Findings</a>
+    </div>
+    <div class="footer-col">
+      <h4>Project</h4>
+      <a href="https://github.com/Kingnanaweb3/verity">GitHub repo</a>
+      <a href="https://github.com/Kingnanaweb3/verity/blob/main/RELIABILITY.md">Reliability brief</a>
+      <a href="https://github.com/Kingnanaweb3/verity/blob/main/README.md">README</a>
+    </div>
+  </div>
+  <div class="footer-fine">
+    <p>Verity can post messages to a real Slack workspace and create or update real Linear tickets when run with --apply. Every outreach draft requires a human to approve it before anything reaches a customer. You remain responsible for the Airtable, Slack, and Linear credentials you connect to it.</p>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => e.target.classList.toggle('in', e.isIntersecting));
+}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('.reveal-group').forEach(g => {
+  [...g.children].forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.setProperty('--d', (i % 4) * 70 + 'ms');
+  });
+});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

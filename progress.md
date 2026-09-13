@@ -40,3 +40,18 @@ Format: one line per checkpoint, appended, never rewritten.
   Slack/Linear state post-run), then evals/ (10 scenarios), then README
   + RELIABILITY.md
 - credentials: still not generated — Airtable/Slack/Linear tokens pending
+
+## agent/main.py wired and smoke-tested
+- done: agent/main.py — CLI with --dry-run/--apply/--fault, load_dotenv,
+  required-env-var check
+- verified: python3 -m agent.main --dry-run correctly fails fast with
+  [FATAL] Missing required environment variables when .env is unpopulated
+  (this is the intended behavior, not a bug)
+- pushed: all files above committed and pushed to
+  https://github.com/Kingnanaweb3/verity
+- blocked: waiting on real credentials — Airtable (API key + base ID +
+  table schema), Slack (bot token + #verity channel + bot invited),
+  Linear (API key + team ID), Groq (API key)
+- next once credentials are in .env: verify each with curl, then run
+  python3 -m agent.main --dry-run for a real end-to-end smoke test,
+  then agent/verifier.py, then evals/

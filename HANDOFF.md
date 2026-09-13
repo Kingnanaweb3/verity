@@ -44,15 +44,15 @@ Hosts: Lemma AI + Comma Capital. Judges: founders of Arga Labs and Userlens.
 ```
 verity/
   agent/
-    main.py          # CLI entry — NOT YET WRITTEN
-    loop.py           # tool-use loop, step cap — NOT YET WRITTEN
-    prompts.py         # system prompt — NOT YET WRITTEN
+    main.py          # CLI entry — DONE
+    loop.py           # tool-use loop, step cap — DONE (Groq, not Anthropic)
+    prompts.py         # system prompt — DONE
     verifier.py          # re-checks Slack/Linear state post-run — NOT YET WRITTEN
     tools/
-      airtable.py         # NOT YET WRITTEN
-      slack.py             # NOT YET WRITTEN
-      linear.py             # NOT YET WRITTEN
-      registry.py            # schemas + dispatch + allowlist — NOT YET WRITTEN
+      airtable.py         # DONE
+      slack.py             # DONE
+      linear.py             # DONE
+      registry.py            # schemas + dispatch + allowlist — DONE (Groq format)
     infra/
       http.py           # DONE — single choke point, retries, fault injection
       ledger.py          # DONE — SQLite idempotency (fingerprint = account_id +
@@ -116,7 +116,6 @@ Scenarios 7 and 8 are the differentiator — never cut these under time
 pressure even if others get trimmed.
 
 ## Credentials status
-Not yet confirmed as of last update — check progress.md for the latest
 line, and verify with curl before assuming any token works.
 
 ## If you're a fresh session starting here
@@ -125,3 +124,19 @@ line, and verify with curl before assuming any token works.
 2. Ask the builder which numbered .sh script was last run successfully.
 3. Continue from the "Build order so far" list above.
 4. Do not re-litigate the product idea or the app choices — both are locked.
+
+## Provider note (important — read this)
+Switched from Anthropic to GROQ partway through the build. loop.py uses
+the `groq` Python SDK, model defaults to llama-3.3-70b-versatile via
+GROQ_MODEL env var. registry.py's TOOL_SCHEMAS are in Groq/OpenAI
+function-calling format ({"type": "function", "function": {...}}), NOT
+Anthropic's input_schema format. Do not revert this without updating
+both files together.
+
+## Status as of last handoff update
+main.py, loop.py, prompts.py, registry.py, airtable.py, slack.py,
+linear.py, http.py, trace.py, ledger.py are all DONE and pushed to
+https://github.com/Kingnanaweb3/verity
+Still pending: agent/verifier.py, evals/scenarios.py, evals/run_evals.py,
+README.md, RELIABILITY.md
+Credentials: not yet in .env — this blocks any real smoke test.

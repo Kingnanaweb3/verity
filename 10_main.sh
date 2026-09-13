@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+cat > agent/main.py << 'EOF'
 """
 CLI entry point.
 
@@ -64,3 +68,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF
+echo "wrote agent/main.py"

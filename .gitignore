@@ -4,3 +4,4 @@ __pycache__/
 *.db
 .venv/
 *.sqlite3
+web/.vercel/

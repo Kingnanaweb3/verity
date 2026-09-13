@@ -67,3 +67,12 @@ Format: one line per checkpoint, appended, never rewritten.
 - blocked: still need Airtable (API key + base ID + table schema) and
   Linear (API key + team ID)
 - next: Airtable setup
+
+## Linear credential confirmed working
+- done: Personal API key generated (Security & access, not the workspace
+  API admin page — those are different pages, easy to confuse)
+- done: LINEAR_API_KEY and LINEAR_TEAM_ID (Kingnanaweb3, key "KIN") added to .env
+- verified: curl to teams query and viewer query both returned correct data
+- blocked: only Airtable left — API key, base ID, and the Accounts table
+  with seed data
+- next: Airtable setup, then a real end-to-end --dry-run smoke test

@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+cat > RELIABILITY.md << 'EOF'
 # Reliability Brief — Verity
 
 ## 1. Architecture
@@ -103,3 +107,5 @@ The agent's tool call had returned `"posted": True` — a real HTTP 200 from Sla
 This is precisely the gap the whole project exists to catch: a tool call that returns success is not the same thing as the action being independently confirmable. The scope was added, the app reinstalled, and the same verification step — re-run, not assumed — confirmed the fix actually worked, showing the real posted message content pulled back from Slack.
 
 No part of this was scripted for the demo. It is the system working as designed, against a mistake nobody planned to make.
+EOF
+echo "wrote RELIABILITY.md"
